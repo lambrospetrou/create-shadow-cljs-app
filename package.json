@@ -1,7 +1,8 @@
 {
   "name": "create-shadow-cljs-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
+  "bin": "src/index.js",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
