@@ -3,13 +3,18 @@
   "version": "1.0.2",
   "description": "Easy creation of ClojureScript applications using Shadow-CLJS",
   "bin": {
-    "create-shadow-cljs-app": "src/index.js"
+    "create-shadow-cljs-app": "dist/index.js"
   },
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rm -rf dist",
+    "release": "mkdir -p dist && cp src/index.js dist/index.js && cp -rf templates dist/",
+    "prepublish": "npm run release"
   },
-  "keywords":[
+  "files": [
+    "dist/"
+  ],
+  "keywords": [
     "shadow-cljs",
     "clojurescript",
     "cljs",
