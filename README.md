@@ -33,3 +33,18 @@ The goal of this project is to provide a no-fuss starting template for projects 
 I am happy to accept pull requests as long as the goal of the projects remains as is.
 
 When choosing between simplicity and features, always prefer simplicity.
+
+### Local testing
+
+In order to test the initializer locally you can use [`npx`](https://github.com/npm/npx) to simulate the flow using a local directory.
+
+```bash
+# Checkout the initializer code
+mkdir -p ~/dev
+cd ~/dev
+git clone https://github.com/lambrospetrou/create-shadow-cljs-app.git
+
+# Create the new app using the local version of the initializer 
+cd ~/dev
+npx ~/dev/create-shadow-cljs-app --name cljs-app
+```
