@@ -1,8 +1,10 @@
 {
   "name": "create-shadow-cljs-app",
-  "version": "1.0.1",
-  "description": "",
-  "bin": "src/index.js",
+  "version": "1.0.2",
+  "description": "Easy creation of ClojureScript applications using Shadow-CLJS",
+  "bin": {
+    "create-shadow-cljs-app": "src/index.js"
+  },
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,7 +18,7 @@
     "commonjs",
     "clojure"
   ], 
-  "author": "",
+  "author": "lambrospetrou",
   "license": "MIT",
   "dependencies": {
     "colors": "^1.3.3",
@@ -30,6 +32,6 @@
   "bugs": "https://github.com/lambrospetrou/create-shadow-cljs-app/issues",
   "repository": {
     "type" : "git",
-    "url" : "https://github.com/lambrospetrou/create-shadow-cljs-app.git"
+    "url" : "git+https://github.com/lambrospetrou/create-shadow-cljs-app.git"
   }
 }

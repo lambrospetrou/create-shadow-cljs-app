@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const yargs = require("yargs");
 const sh = require("shelljs");
 const colors = require("colors/safe");
@@ -56,7 +58,16 @@ const initProjectDir = ({name}) => {
 const copyTemplates = ({name}) => {
   sh.echo(colors.bold("\t:: Copying project files..."));
   sh.cp("-rf", path.join(__dirname, "..", "templates", "*"), name);
-  sh.cp(path.join(__dirname, "..", "templates", ".gitignore"), name);
+
+  const gitignoreStr = [
+    "build/",
+    "node_modules/",
+    "target/",
+    "/yarn.lock",
+    ".shadow-cljs/",
+    ".nrepl-port",
+  ].join("\n");
+  new sh.ShellString(gitignoreStr).to(path.join(name, ".gitignore"));
 };
 
 const updatePackageJson = ({name, description}) => {
