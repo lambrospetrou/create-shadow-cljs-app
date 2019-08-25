@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 (ns cscljs.main
   (:require 
     [clojure.string :as str]
@@ -8,7 +6,7 @@
     ["colors" :as colors]
     ["path" :as path]))
 
-(def argv
+(defn read-args [yargs]
   (-> (.options yargs (clj->js {
     :n {
       :alias "name",
@@ -30,15 +28,11 @@
   (.help)
   (.-argv)))
 
-(set! (-> sh (.-config) (.-silent)) true)
-(set! (-> sh (.-config) (.-fatal)) true)
-
-;(println (.-config sh))
-
 (defn __dirname [] (js* "__dirname"))
 
-(defn make-ctx []
+(defn make-ctx [argv]
   (-> {
+        ; FIXME Convert `make-ctx` to receive a Clojure map instead of JS
         :name (or (.-name argv) (aget (.-_ argv) 0) "")
         :description (.-description argv)
 
@@ -102,8 +96,13 @@
     (.cd sh cwd)))
 
 (defn -main []
-  (.echo sh (.bold colors (.green colors ":: Running the `create-shadow-cljs` initializer")))
-  (let [ctx (make-ctx)]
+  (set! (-> sh (.-config) (.-silent)) true)
+  (set! (-> sh (.-config) (.-fatal)) true)
+  ;(println (.-config sh))
+
+  (let [argv (read-args yargs)
+        ctx (make-ctx argv)]
+    (.echo sh (.bold colors (.green colors ":: Running the `create-shadow-cljs` initializer")))
     (initProjectDir ctx)
     (copyTemplates ctx)
     (updatePackageJson ctx)
