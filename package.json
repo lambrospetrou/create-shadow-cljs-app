@@ -8,8 +8,10 @@
   "main": "dist/index.js",
   "scripts": {
     "clean": "rm -rf dist",
-    "release": "mkdir -p dist && cp src/index.js dist/index.js && cp -rf templates dist/",
-    "prepublish": "npm run release"
+    "watch": "shadow-cljs watch app",
+    "release": "shadow-cljs release app",
+    "postrelease": "cp -rf templates dist/",
+    "prepare": "npm run release"
   },
   "files": [
     "dist/"
@@ -22,21 +24,24 @@
     "browser",
     "commonjs",
     "clojure"
-  ], 
+  ],
   "author": "lambrospetrou",
-  "license": "MIT",
+  "devDependencies": {
+    "shadow-cljs": "^2.8.51"
+  },
   "dependencies": {
     "colors": "^1.3.3",
     "shelljs": "^0.8.3",
     "yargs": "^14.0.0"
   },
+  "license": "MIT",
   "engines": {
     "node": ">=8"
   },
   "homepage": "https://github.com/lambrospetrou/create-shadow-cljs-app",
   "bugs": "https://github.com/lambrospetrou/create-shadow-cljs-app/issues",
   "repository": {
-    "type" : "git",
-    "url" : "git+https://github.com/lambrospetrou/create-shadow-cljs-app.git"
+    "type": "git",
+    "url": "git+https://github.com/lambrospetrou/create-shadow-cljs-app.git"
   }
 }

@@ -1,0 +1,9 @@
+{:source-paths ["src"]
+ :dependencies []
+ :builds
+  ; https://shadow-cljs.github.io/docs/UsersGuide.html#target-node-script
+ {:app {:target :node-script
+        :output-to "dist/index.js"
+        :main cscljs.main/-main
+        :devtools {:after-load cscljs.main/-main}
+        }}}
