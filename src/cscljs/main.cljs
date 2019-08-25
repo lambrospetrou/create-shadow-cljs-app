@@ -50,7 +50,7 @@
         (println 
           (clu (clj->js [
             {:header "Typical Example",
-            :content "npx create-shadow-cls-app <app-name>"}
+            :content "npx create-shadow-cljs-app <app-name>"}
             {:header "Available options"
             :optionList optionDefs}
             {:content "Project home: {underline https://github.com/lambrospetrou/create-shadow-cljs-app}"}

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1
+
+- Fixed a typo in the usage typical example shown by `-h/--help`
+
 ## 1.1.0
 
 ### Removed
