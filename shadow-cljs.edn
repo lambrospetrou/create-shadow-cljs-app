@@ -5,5 +5,31 @@
  {:app {:target :node-script
         :output-to "dist/index.js"
         :main cscljs.main/-main
+        
+        :js-options {;:js-provider :shadow
+                     :keep-native-requires true
+                     :output-feature-set :es6
+                     :closure-output-charset "ascii"}
+
+        :release {:compiler-options {:optimizations :simple
+                                    :variable-renaming :off
+                                    :property-renaming :off
+                                    :pretty-print true
+                                    :source-map true}}
+
         :devtools {:after-load cscljs.main/-main}
-        }}}
+        }
+        
+  :library {:target :node-library
+            :output-to "build/lib.js"
+            :exports {:main cscljs.main/-main}
+            
+
+            :release {:compiler-options {:optimizations :simple
+                                    :variable-renaming :off
+                                    :property-renaming :off
+                                    :pretty-print true
+                                    :source-map true}}
+
+            
+            }}}
