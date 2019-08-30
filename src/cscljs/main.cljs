@@ -88,7 +88,6 @@
       "build/"
       "node_modules/"
       "target/"
-      "/yarn.lock"
       ".shadow-cljs/"
       ".nrepl-port"
     ]))
