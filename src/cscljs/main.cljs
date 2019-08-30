@@ -53,7 +53,7 @@
             :optionList optionDefs}
             {:content "Project home: {underline https://github.com/lambrospetrou/create-shadow-cljs-app}"}
           ])))
-          (.exit sh 1))
+          (js/process.exit 0))
       options)))
 
 (defn make-ctx [args ^js sh]
@@ -72,11 +72,11 @@
 (defn initProjectDir [{:keys [^js sh name]}]
   (when (str/blank? name)
     (.echo sh (.bgRed colors (.white colors "The project name cannot be empty. Provide one using the -n/--name options.")))
-    (.exit sh 1))
+    (js/process.exit 1))
   
   (when (some #(= name %) (js->clj (.ls sh ".")))
     (.echo sh (.bgRed colors (.white colors (str "The given directory '" name "' already exists, please choose a different one."))))
-    (.exit sh 1))
+    (js/process.exit 1))
   
   (.mkdir sh "-p" name))
 
