@@ -1,7 +1,6 @@
 (ns cscljs.main
   (:require 
     [clojure.string :as str]
-    [cljs.nodejs :as nodejs]
     ["colors" :as colors]
     ["path" :as path]
     ["command-line-args" :as cla]
