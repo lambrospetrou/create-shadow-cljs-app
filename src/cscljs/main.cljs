@@ -8,8 +8,6 @@
     ["command-line-usage" :as clu]
     ["shelljs" :as sh]))
 
-(defn __dirname [] (js* "__dirname"))
-
 (defn read-args [^js cla ^js clu ^js sh]
   (let [
     optionDefs 
@@ -65,7 +63,7 @@
 
     :args args
     :cwd (.. sh pwd toString)
-    :templatesPath (.join path (__dirname) "templates")
+    :templatesPath (.join path js/__dirname "templates")
     :projectPath (.join path (.. sh pwd toString) (get args :name ""))
 
     :sh sh
