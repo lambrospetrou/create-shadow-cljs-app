@@ -130,7 +130,7 @@
     (set! (-> sh (.-config) (.-silent)) true)
     (set! (-> sh (.-config) (.-fatal)) true)
 
-    (.echo sh (.bold colors (.green colors ":: Running the `create-shadow-cljs` initializer")))
+    (.echo sh (.bold colors (.green colors ":: Running the `create-shadow-cljs-app` initializer")))
     (initProjectDir ctx)
     (copyTemplates ctx)
     (updatePackageJson ctx)
