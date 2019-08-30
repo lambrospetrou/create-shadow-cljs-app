@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.2
+
+- Fixed a typo in the package name shown when running the initializer
+- Minor refactoring in the code
+
 ## 1.1.1
 
 - Fixed a typo in the usage typical example shown by `-h/--help`
