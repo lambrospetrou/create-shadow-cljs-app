@@ -40,11 +40,10 @@ In order to test the initializer locally you can use [`npx`](https://github.com/
 
 ```bash
 # Checkout the initializer code
-mkdir -p ~/dev
-cd ~/dev
+mkdir -p ~/dev && cd ~/dev
 git clone https://github.com/lambrospetrou/create-shadow-cljs-app.git
+pushd create-shadow-cljs-app && npm install && npm pack && popd
 
-# Create the new app using the local version of the initializer 
-cd ~/dev
-npx ~/dev/create-shadow-cljs-app --name cljs-app
+# Create the new app using the local version of the initializer  (use the right version in the `*.tgz` file)
+npx ~/dev/create-shadow-cljs-app/create-shadow-cljs-app-1.1.1.tgz --name cljs-app
 ```

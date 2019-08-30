@@ -13,7 +13,8 @@
     "clean": "shx rm -rf dist",
     "watch": "shadow-cljs watch app",
     "release": "shadow-cljs release app",
-    "postrelease": "shx cp -rf templates dist/"
+    "postrelease": "shx cp -rf templates dist/",
+    "prepack": "npm run clean && npm run release"
   },
   "keywords": [
     "shadow-cljs",
