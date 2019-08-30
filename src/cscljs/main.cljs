@@ -97,13 +97,13 @@
 (defn updatePackageJson [{:keys [^js sh name description projectPath]}]
   (.echo sh (.bold colors "\t:: Updating `package.json`..."))
   (let [projectPkgJson (.join path projectPath "package.json")
-        original (js->clj (.parse js/JSON (.. sh (cat projectPkgJson) (toString))))
+        original (js->clj (js/JSON.parse (.. sh (cat projectPkgJson) (toString))))
         updated (-> 
                   original
                   (assoc "name" name) 
                   (assoc "description" 
                     (or description (get original "description"))))]
-    (.. sh (ShellString. (.stringify js/JSON (clj->js updated) nil 2)) (to projectPkgJson))))
+    (.. sh (ShellString. (js/JSON.stringify (clj->js updated) nil 2)) (to projectPkgJson))))
 
 (defn installDependencies [{:keys [^js sh args cwd projectPath]}]
   (when (not (:no-install args))
