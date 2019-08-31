@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.3
+
+- Only `shelljs` is now a non-dev dependency, which should make it slightly faster to run through `npx`
+
 ## 1.1.2
 
 - Fixed a typo in the package name shown when running the initializer
