@@ -6,10 +6,17 @@
         :output-to "dist/index.js"
         :main cscljs.main/-main
 
-        ; :js-options {:js-provider :shadow
-        ;              :keep-native-requires true
-        ;              :output-feature-set :es6
-        ;              :closure-output-charset "ascii"}
+        :js-options {:js-provider :shadow
+                     :keep-native-requires true
+                     ; `shelljs` uses dynamic `requires` which breaks Shadow-CLJS bundling.
+                     ; We exclude it here from any Closure processing and will just leave it
+                     ; as a normal `require` from `node_modules`. Therefore, we still need to 
+                     ; have it as a non-dev dependency.
+                     ; - https://github.com/thheller/shadow-cljs/issues/290#issuecomment-524626179
+                     ; - https://github.com/shelljs/shelljs/issues/962
+                     :keep-as-require #{"shelljs"}
+                     :output-feature-set :es6
+                     :closure-output-charset "ascii"}
 
         ; :release {:compiler-options {
         ;                             ;:optimizations :simple

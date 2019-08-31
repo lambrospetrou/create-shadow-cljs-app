@@ -28,13 +28,13 @@
   "author": "lambrospetrou",
   "devDependencies": {
     "shadow-cljs": "^2.8.51",
-    "shx": "^0.3.2"
-  },
-  "dependencies": {
-    "shelljs": "^0.8.3",
+    "shx": "^0.3.2",
     "colors": "^1.3.3",
     "command-line-args": "^5.1.1",
     "command-line-usage": "^6.0.2"
+  },
+  "dependencies": {
+    "shelljs": "^0.8.3"
   },
   "license": "MIT",
   "engines": {
