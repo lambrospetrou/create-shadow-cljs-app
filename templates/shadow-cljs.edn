@@ -1,5 +1,9 @@
 {:source-paths ["src"]
  :dependencies []
+ 
+ :dev-http {5000 "build/browser"}
+ :nrepl {:port 8777}
+ 
  :builds
   ; https://shadow-cljs.github.io/docs/UsersGuide.html#target-node-script
  {:app {:target :node-script
