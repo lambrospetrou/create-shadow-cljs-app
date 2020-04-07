@@ -19,11 +19,7 @@ Watch compile with with hot reloading, using the `browser` target as example.
 npm run watch:browser
 ```
 
-Start program and connect reload server:
-
-```bash
-npm run start:browser
-```
+The above command will also start a server at port `5000` so that you can open `http://localhost:5000` and load the website.
 
 ### Production release
 
