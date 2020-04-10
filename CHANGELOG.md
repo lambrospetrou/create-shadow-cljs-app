@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.4
+
+- Use `Shadow-CLJS`'s built-in server during watch mode instead of having to run separate server to serve the built assets.
+
 ## 1.1.3
 
 - Only `shelljs` is now a non-dev dependency, which should make it slightly faster to run through `npx`
